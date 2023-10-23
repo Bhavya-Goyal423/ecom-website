@@ -65,6 +65,7 @@
   box-shadow: 0 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
   flex-direction: column;
   background-color: white;
+  border-radius: 11px;
 }
 .user-dropdown a:link,
 .user-dropdown a:visited {
