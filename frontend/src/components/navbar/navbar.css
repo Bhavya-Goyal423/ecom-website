@@ -2,8 +2,9 @@
   display: flex;
   font-size: 1.8rem;
   justify-content: space-between;
-  padding: 1.2rem 5.6rem;
+  padding: 2.4rem 5.6rem;
   align-items: center;
+  background-color: #dee2e6;
 }
 
 .logo {
@@ -22,7 +23,6 @@
 .nav-link:link,
 .nav-link:visited {
   height: 100%;
-  /* border: 1px solid red; */
   text-decoration: none;
   color: black;
 }
@@ -42,7 +42,7 @@
 .user-login-signup {
   position: relative;
   display: flex;
-  top: 1rem;
+  top: 0.6rem;
 }
 
 .user-icon {
@@ -64,6 +64,7 @@
   display: flex;
   box-shadow: 0 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
   flex-direction: column;
+  background-color: white;
 }
 .user-dropdown a:link,
 .user-dropdown a:visited {
