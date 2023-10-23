@@ -1,5 +1,4 @@
 import "./homepage.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const testimonialData = [
@@ -26,7 +25,6 @@ const testimonialData = [
 ];
 
 export default function Homepage() {
-  const [testimonialCounter, setTestimonialCounter] = useState(0);
   return (
     <>
       <section className="section-hero">
