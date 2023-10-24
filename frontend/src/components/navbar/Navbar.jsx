@@ -4,10 +4,13 @@ import { Link, NavLink } from "react-router-dom";
 import UserIcon from "../../icons/UserIcon";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useValue } from "../../context/CustomContext";
+import CartIcon from "../../icons/CartIcon";
 
 export default function Navbar() {
   // ? State to handle when user click for sign in or sign up
   const [isUserClicked, setIsUserClicked] = useState(false);
+  const { href } = useValue();
 
   return (
     <>
@@ -42,6 +45,11 @@ export default function Navbar() {
           </ul>
         </nav>
         <div className="user-login-signup">
+          {href === "shop" && (
+            <Link to={"/cart"}>
+              <CartIcon />
+            </Link>
+          )}
           <UserIcon setIsUserClicked={setIsUserClicked} />
           {isUserClicked && (
             <div className="user-dropdown">
@@ -51,7 +59,7 @@ export default function Navbar() {
           )}
         </div>
       </div>
-      <Outlet />
+      <Outlet href={"HREF"} />
     </>
   );
 }

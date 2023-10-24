@@ -7,6 +7,7 @@ import About from "./pages/about/About";
 import ContactUs from "./pages/contactus/ContactUs";
 import Homepage from "./pages/homepage/Homepage";
 import Shop from "./pages/shop/Shop";
+import { CustomContext } from "./context/CustomContext";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CustomContext>
+      <RouterProvider router={router} />
+    </CustomContext>
   </React.StrictMode>
 );
