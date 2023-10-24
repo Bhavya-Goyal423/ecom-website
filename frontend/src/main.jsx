@@ -8,6 +8,8 @@ import ContactUs from "./pages/contactus/ContactUs";
 import Homepage from "./pages/homepage/Homepage";
 import Shop from "./pages/shop/Shop";
 import { CustomContext } from "./context/CustomContext";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/Signup/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
       { path: "shop", element: <Shop /> },
       { path: "about", element: <About /> },
       { path: "contactus", element: <ContactUs /> },
+      { path: "signin", element: <SignIn /> },
+      { path: "signup", element: <SignUp /> },
     ],
   },
 ]);

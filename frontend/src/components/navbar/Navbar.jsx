@@ -45,16 +45,19 @@ export default function Navbar() {
           </ul>
         </nav>
         <div className="user-login-signup">
-          {href === "shop" && (
-            <Link to={"/cart"}>
-              <CartIcon />
-            </Link>
-          )}
+          <Link to={"/cart"}>
+            <CartIcon style={{ opacity: `${href === "shop" ? "1" : "0"}` }} />
+          </Link>
+
           <UserIcon setIsUserClicked={setIsUserClicked} />
           {isUserClicked && (
             <div className="user-dropdown">
-              <Link to={"/signin"}>Sign In</Link>
-              <Link to={"/signup"}>Sign Up</Link>
+              <Link to={"/signin"} onClick={() => setIsUserClicked(false)}>
+                Sign In
+              </Link>
+              <Link to={"/signup"} onClick={() => setIsUserClicked(false)}>
+                Sign Up
+              </Link>
             </div>
           )}
         </div>

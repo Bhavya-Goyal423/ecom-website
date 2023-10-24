@@ -1,0 +1,58 @@
+.section-signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.sign-in-wrapper {
+  padding: 4.2rem 3.6rem;
+  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 1);
+  border-radius: 11px;
+  height: 70%;
+  width: 30%;
+}
+
+.get-started {
+  font-size: 2.4rem;
+}
+
+.sign-in-wrapper p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.sign-in-form {
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.email-box,
+.password-box,
+.name-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sign-in-wrapper input {
+  font-size: 1.8rem;
+  padding: 0.8rem 0.5rem;
+  border-radius: 11px;
+  /* border: none; */
+  border: 1px solid black;
+}
+
+.sign-in-wrapper input:focus {
+  outline: none;
+}
+
+.sign-up-title {
+  margin-top: 0.5rem;
+  font-size: 1.4rem !important;
+}
+.btn-signup {
+  color: #c2854b;
+}

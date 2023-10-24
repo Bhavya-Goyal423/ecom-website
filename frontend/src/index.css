@@ -7,6 +7,16 @@
 html {
   font-size: 62.5%;
 }
+
+.btn {
+  background-color: #4c2c0d;
+  border-radius: 11px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
 .btn:link,
 .btn:visited {
   background-color: #4c2c0d;

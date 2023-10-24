@@ -1,4 +1,4 @@
-export default function CartIcon() {
+export default function CartIcon({ style }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +6,7 @@ export default function CartIcon() {
       height="1em"
       viewBox="0 0 256 256"
       className="icon cart-icon"
+      style={style}
     >
       <path
         fill="#888888"
