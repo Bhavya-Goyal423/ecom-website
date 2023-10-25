@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,6 +8,7 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const displayError = async (errors, index) => {
     if (index < errors.length) {
@@ -35,10 +37,14 @@ export default function SignUp() {
     if (!result.success) {
       displayError(result.message, 0);
     } else if (result.success) {
-      toast.success("User Created");
+      toast.success("Account Created, Redirecting to Login");
       setName("");
       setEmail("");
       setPassword("");
+      console.log("Here");
+      setTimeout(() => {
+        navigate("/signin");
+      }, 2000);
     }
   };
 
