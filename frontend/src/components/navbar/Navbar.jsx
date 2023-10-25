@@ -2,7 +2,7 @@
 import "./navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import UserIcon from "../../icons/UserIcon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useValue } from "../../context/CustomContext";
 import CartIcon from "../../icons/CartIcon";
@@ -10,7 +10,23 @@ import CartIcon from "../../icons/CartIcon";
 export default function Navbar() {
   // ? State to handle when user click for sign in or sign up
   const [isUserClicked, setIsUserClicked] = useState(false);
-  const { href } = useValue();
+  const { href, user, setUser } = useValue();
+
+  useEffect(() => {
+    const curUser = localStorage.getItem("user");
+
+    if (curUser) {
+      setUser(JSON.parse(curUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+    localStorage.removeItem("userID");
+    localStorage.removeItem("user");
+  };
 
   return (
     <>
@@ -45,12 +61,13 @@ export default function Navbar() {
           </ul>
         </nav>
         <div className="user-login-signup">
-          <Link to={"/cart"}>
+          <Link className="cart" to={"/cart"}>
             <CartIcon style={{ opacity: `${href === "shop" ? "1" : "0"}` }} />
+            {href === "shop" && <span className="cart-items">0</span>}
           </Link>
 
           <UserIcon setIsUserClicked={setIsUserClicked} />
-          {isUserClicked && (
+          {isUserClicked && !user && (
             <div className="user-dropdown">
               <Link to={"/signin"} onClick={() => setIsUserClicked(false)}>
                 Sign In
@@ -60,9 +77,18 @@ export default function Navbar() {
               </Link>
             </div>
           )}
+          {isUserClicked && user && (
+            <div className="user-dropdown">
+              <p className="user-name">{user.name}</p>
+              <Link to={"/"}>Your Orders</Link>
+              <button className="btn-logout" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <Outlet href={"HREF"} />
+      <Outlet />
     </>
   );
 }

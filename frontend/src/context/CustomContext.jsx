@@ -9,9 +9,10 @@ export const useValue = () => {
 
 export const CustomContext = ({ children }) => {
   const [href, setHref] = useState(null);
+  const [user, setUser] = useState(null);
 
   return (
-    <dataContext.Provider value={{ href, setHref }}>
+    <dataContext.Provider value={{ href, setHref, user, setUser }}>
       {children}
     </dataContext.Provider>
   );

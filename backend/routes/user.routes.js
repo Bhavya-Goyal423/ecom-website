@@ -1,10 +1,19 @@
 import express from "express";
-import validateUser from "../validation/userValidator.js";
 import UserController from "../controllers/userController.js";
+import {
+  validateUserSignUp,
+  validateUserSignIn,
+} from "../validation/userValidator.js";
 
 const userRouter = express();
 const userController = new UserController();
 
-userRouter.route("/signup").post(validateUser, userController.handleSignUp);
+userRouter
+  .route("/signup")
+  .post(validateUserSignUp, userController.handleSignUp);
+
+userRouter
+  .route("/signin")
+  .post(validateUserSignIn, userController.handleSignIn);
 
 export default userRouter;

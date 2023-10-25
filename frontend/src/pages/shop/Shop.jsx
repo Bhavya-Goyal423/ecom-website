@@ -3,7 +3,7 @@ import { useValue } from "../../context/CustomContext";
 import { useEffect } from "react";
 
 export default function Shop() {
-  const { href, setHref } = useValue();
+  const { setHref } = useValue();
 
   useEffect(() => {
     setHref("shop");
@@ -11,7 +11,6 @@ export default function Shop() {
       setHref(null);
     };
   }, [setHref]);
-  console.log(href);
 
   return <div>Shop</div>;
 }

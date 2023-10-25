@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useValue } from "../../context/CustomContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,6 +9,11 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { user } = useValue();
+
+  useEffect(() => {
+    if (user) navigate("/shop");
+  }, [user, navigate]);
 
   const displayError = async (errors, index) => {
     if (index < errors.length) {
