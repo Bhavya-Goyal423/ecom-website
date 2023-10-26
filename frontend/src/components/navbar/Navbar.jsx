@@ -18,7 +18,7 @@ export default function Navbar() {
     if (curUser) {
       setUser(JSON.parse(curUser));
     }
-  }, []);
+  }, [setUser]);
 
   const handleLogout = () => {
     setUser(null);
