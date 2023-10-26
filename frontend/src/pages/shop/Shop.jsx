@@ -6,8 +6,8 @@ import Filter from "../../components/filter/Filter";
 // import { useParams, useLocation } from "react-router-dom";
 
 export default function Shop() {
-  const { setHref } = useValue();
-  const [allProducts, setAllProducts] = useState([]);
+  const { setHref, allProducts, setAllProducts } = useValue();
+
   console.log(allProducts);
 
   useEffect(() => {
@@ -30,13 +30,20 @@ export default function Shop() {
   }, []);
 
   return (
-    <>
+    <div className="shop-wrapper">
       <Filter />
-      <div className="product-wrapper">
-        {allProducts.map((p) => (
-          <Product key={p["_id"]} product={p} />
-        ))}
+      <div className="shop-main">
+        <input
+          type="text"
+          className="product-search"
+          placeholder="search products ..."
+        />
+        <div className="product-wrapper">
+          {allProducts.map((p) => (
+            <Product key={p["_id"]} product={p} />
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

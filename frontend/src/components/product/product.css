@@ -1,11 +1,26 @@
 .product {
-  text-decoration: none;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   align-items: center;
-  height: 30vh;
+  text-decoration: none;
+  box-shadow: 0 0 0.6rem 0.1rem rgba(75, 75, 75, 0.1);
 }
 .product img {
   width: 100%;
+  height: 100%;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-name {
+  font-size: 2.3rem;
+  color: #cc7e33;
+}
+.product-price {
+  font-size: 1.6rem;
+  color: #191006;
+  font-weight: 500;
 }

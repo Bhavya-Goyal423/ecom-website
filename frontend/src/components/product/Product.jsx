@@ -8,7 +8,7 @@ export default function Product({ product }) {
         <img src={product.thumbnail} alt={product.name} />
         <div className="product-details">
           <p className="product-name">{product.name}</p>
-          <p className="product-price">{product.price}</p>
+          <p className="product-price">RS. {product.price}</p>
         </div>
       </Link>
     </>

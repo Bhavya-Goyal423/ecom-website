@@ -10,9 +10,12 @@ export const useValue = () => {
 export const CustomContext = ({ children }) => {
   const [href, setHref] = useState(null);
   const [user, setUser] = useState(null);
+  const [allProducts, setAllProducts] = useState([]);
 
   return (
-    <dataContext.Provider value={{ href, setHref, user, setUser }}>
+    <dataContext.Provider
+      value={{ href, setHref, user, setUser, allProducts, setAllProducts }}
+    >
       {children}
     </dataContext.Provider>
   );

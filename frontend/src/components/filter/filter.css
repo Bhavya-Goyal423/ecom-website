@@ -1,0 +1,26 @@
+.aside-filter {
+  height: 100vh;
+  border-right: 1px solid black;
+  position: fixed;
+  width: 15vw;
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5.6rem;
+}
+
+.sort-heading {
+  font-size: 2.6rem;
+  color: #e68d3a;
+}
+.sort-filter {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.sort-filter label {
+  margin-right: 0.6rem;
+}
