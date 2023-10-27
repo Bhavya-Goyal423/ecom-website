@@ -16,6 +16,14 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Password is a required field"],
   },
+  orders: {
+    type: [{ productName: Schema.Types.ObjectId, date: Date, status: String }],
+    default: [],
+  },
+  cart: {
+    type: [Schema.Types.ObjectId],
+    default: [],
+  },
 });
 
 const UserModel = new model("User", userSchema);

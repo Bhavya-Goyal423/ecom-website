@@ -11,10 +11,6 @@ const productSchema = new Schema({
     type: Number,
     required: [true, "Product price is required"],
   },
-  description: {
-    type: String,
-    required: [true, "Product mush have a description"],
-  },
   stock: {
     type: Number,
     default: 0,
@@ -34,10 +30,16 @@ const productSchema = new Schema({
   reviews: {
     type: [
       {
-        user: {
-          type: Schema.Types.ObjectId,
+        userName: {
+          type: String,
           required: true,
         },
+
+        rating: {
+          type: Number,
+          required: true,
+        },
+
         comment: {
           type: String,
           required: true,

@@ -1,6 +1,6 @@
 .aside-filter {
   height: 100vh;
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(0, 0, 0, 0.178);
   position: fixed;
   width: 15vw;
   flex-shrink: 0;

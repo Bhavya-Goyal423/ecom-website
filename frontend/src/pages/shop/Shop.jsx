@@ -3,12 +3,9 @@ import { useValue } from "../../context/CustomContext";
 import { useEffect, useState } from "react";
 import Product from "../../components/product/product";
 import Filter from "../../components/filter/Filter";
-// import { useParams, useLocation } from "react-router-dom";
 
 export default function Shop() {
   const { setHref, allProducts, setAllProducts } = useValue();
-
-  console.log(allProducts);
 
   useEffect(() => {
     setHref("shop");

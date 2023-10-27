@@ -10,6 +10,7 @@ import Shop from "./pages/shop/Shop";
 import { CustomContext } from "./context/CustomContext";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/Signup/SignUp";
+import CurProduct from "./pages/curProduct/curProduct";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "contactus", element: <ContactUs /> },
       { path: "signin", element: <SignIn /> },
       { path: "signup", element: <SignUp /> },
+      { path: "shop/:id", element: <CurProduct /> },
     ],
   },
 ]);

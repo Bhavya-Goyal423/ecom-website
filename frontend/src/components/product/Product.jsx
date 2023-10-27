@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Product({ product }) {
   return (
     <>
-      <Link className="product">
+      <Link to={`/shop/${product["_id"]}`} className="product">
         <img src={product.thumbnail} alt={product.name} />
         <div className="product-details">
           <p className="product-name">{product.name}</p>
