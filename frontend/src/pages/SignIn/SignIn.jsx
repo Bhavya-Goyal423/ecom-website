@@ -41,9 +41,6 @@ export default function SignIn() {
     if (!result.success) {
       displayErrors(result.message, 0);
     } else {
-      localStorage.setItem("userID", result.message.id);
-      localStorage.setItem("email", result.message.email);
-      localStorage.setItem("name", result.message.name);
       localStorage.setItem("user", JSON.stringify(result.message));
       setUser(result.message);
       toast.success("Login Successfull");

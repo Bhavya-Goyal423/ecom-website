@@ -10,7 +10,7 @@ import CartIcon from "../../icons/CartIcon";
 export default function Navbar() {
   // ? State to handle when user click for sign in or sign up
   const [isUserClicked, setIsUserClicked] = useState(false);
-  const { href, user, setUser } = useValue();
+  const { cart, user, setUser } = useValue();
 
   useEffect(() => {
     const curUser = localStorage.getItem("user");
@@ -22,9 +22,6 @@ export default function Navbar() {
 
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-    localStorage.removeItem("userID");
     localStorage.removeItem("user");
   };
 
@@ -62,8 +59,8 @@ export default function Navbar() {
         </nav>
         <div className="user-login-signup">
           <Link className="cart" to={"/cart"}>
-            <CartIcon style={{ opacity: `${href === "shop" ? "1" : "0"}` }} />
-            {href === "shop" && <span className="cart-items">0</span>}
+            <CartIcon />
+            <span className="cart-items">{cart.length}</span>
           </Link>
 
           <UserIcon setIsUserClicked={setIsUserClicked} />

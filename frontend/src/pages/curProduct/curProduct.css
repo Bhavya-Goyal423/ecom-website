@@ -1,8 +1,7 @@
 .section-cur-product {
   padding: 5.6rem 15.6rem;
-  border: 1px solid black;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   column-gap: 12rem;
 }
 .product-images {
@@ -10,6 +9,7 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 5rem;
   row-gap: 5rem;
+  align-items: flex-start;
 }
 
 .product-image img {
@@ -18,11 +18,11 @@
 .prodcut-buy-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .cur-product-name {
-  font-size: 4.5rem;
+  font-size: 2.4rem;
 }
 
 .cur-product-price {
@@ -46,4 +46,9 @@
   background: none;
   border: none;
   font-size: 2.5rem;
+}
+.btn-add-to-cart {
+  font-size: 2rem;
+  padding: 1.2rem 2.4rem;
+  border-radius: 25px;
 }

@@ -42,6 +42,7 @@ export default class UserController {
             name: curUser.name,
             email: curUser.email,
             id: curUser["_id"],
+            cart: curUser.cart,
           },
         });
       }

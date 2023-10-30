@@ -22,7 +22,7 @@ export default function CurProduct() {
 
   return (
     <div className="section-cur-product">
-      <div className="product-details">
+      <div className="cur-product-details">
         <div className="product-images">
           {CurProduct.images.map((img, idx) => (
             <div className="product-image" key={idx}>
@@ -47,7 +47,11 @@ export default function CurProduct() {
             +{" "}
           </button>
         </div>
-        {CurProduct.stock === 0 ? "Out of Stock" : <button>Add to Cart</button>}
+        {CurProduct.stock === 0 ? (
+          "Out of Stock"
+        ) : (
+          <button className="btn btn-add-to-cart">Add to Cart</button>
+        )}
       </div>
     </div>
   );

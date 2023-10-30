@@ -70,7 +70,10 @@
   flex-direction: column;
   background-color: white;
   border-radius: 11px;
+
+  z-index: 2;
 }
+
 .user-dropdown a:link,
 .user-dropdown a:visited {
   width: 100%;
