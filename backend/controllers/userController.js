@@ -1,4 +1,6 @@
+import mongoose from "mongoose";
 import UserModel from "../models/userModel.js";
+import ProductModel from "../models/productModel.js";
 import bcrypt from "bcrypt";
 
 export default class UserController {
@@ -48,6 +50,31 @@ export default class UserController {
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  updateUser = async (req, res) => {
+    const { userID, itemID } = req.params;
+    const { quantity } = req.query;
+
+    try {
+      const user = await UserModel.findById(userID);
+      const curObjectId = new mongoose.Types.ObjectId(itemID);
+
+      if (!user) return res.json({ message: "User not found" });
+      const curItemIndex = user.cart.findIndex((item) =>
+        item.id.equals(curObjectId)
+      );
+      if (curItemIndex !== -1) {
+        user.cart[curItemIndex].quantity += +quantity;
+      } else {
+        user.cart.push({ id: itemID, quantity });
+      }
+      const result = await user.save();
+      return res.json({ status: "Success", message: "Cart Updated", result });
+    } catch (error) {
+      console.log(error);
+      return res.json({ status: "Failed", message: "Some Error Occured" });
     }
   };
 }

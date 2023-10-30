@@ -16,4 +16,6 @@ userRouter
   .route("/signin")
   .post(validateUserSignIn, userController.handleSignIn);
 
+userRouter.route("/:userID/:itemID").patch(userController.updateUser);
+
 export default userRouter;

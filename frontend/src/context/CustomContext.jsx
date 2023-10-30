@@ -14,11 +14,39 @@ export const CustomContext = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
+    console.log("Effect 1");
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
 
     if (user) {
+      console.log("In set");
       setCart(user.cart);
+    } else {
+      setCart([]);
     }
+  }, [user]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("Effect 2", cart);
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (user) {
+        user.cart = cart;
+        localStorage.setItem("user", JSON.stringify(user));
+      }
+    }, 1000);
+  }, [cart]);
+
+  const fetchProducts = async () => {
+    const res = await fetch("http://localhost:3000/product/", {
+      method: "GET",
+    });
+    const data = await res.json();
+    setAllProducts(data.data);
+  };
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
 
   return (

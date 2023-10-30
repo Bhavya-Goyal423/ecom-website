@@ -21,7 +21,19 @@ const userSchema = new Schema({
     default: [],
   },
   cart: {
-    type: [Schema.Types.ObjectId],
+    type: [
+      {
+        id: {
+          type: Schema.Types.ObjectId,
+          required: true,
+          unique: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
     default: [],
   },
 });
