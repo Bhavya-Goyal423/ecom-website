@@ -1,0 +1,7 @@
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  font-size: 1.6rem;
+  padding: 4.5rem 12.8rem;
+}

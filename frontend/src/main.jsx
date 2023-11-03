@@ -11,6 +11,7 @@ import { CustomContext } from "./context/CustomContext";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/Signup/SignUp";
 import CurProduct from "./pages/curProduct/curProduct";
+import Cart from "./pages/cart/cart";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "signin", element: <SignIn /> },
       { path: "signup", element: <SignUp /> },
       { path: "shop/:id", element: <CurProduct /> },
+      { path: "cart", element: <Cart /> },
     ],
   },
 ]);

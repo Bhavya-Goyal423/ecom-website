@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function CurProduct() {
   const [quantity, setQuantity] = useState(1);
-  const { allProducts, setCart, cart } = useValue();
+  const { allProducts, setCart } = useValue();
   const productId = useParams().id;
   const CurProduct = allProducts.find((p) => p["_id"] === productId);
 
@@ -37,22 +37,6 @@ export default function CurProduct() {
     if (result.status === "Success") {
       setCart(result.result.cart);
     }
-
-    // const isItem = cart.find((item) => item.id === itemId);
-    // if (isItem) {
-    //   isItem.quantity += quantity;
-
-    //   setCart((c) => c.map((item) => (item.id === itemId ? isItem : item)));
-    //   setTimeout(() => {
-    //     storage.cart = cart;
-    //     localStorage.setItem("user", JSON.stringify(storage));
-    //   }, 0);
-    // } else {
-    //   const curCart = [...cart, { id: productId, quantity }];
-    //   storage.cart = curCart;
-    //   localStorage.setItem("user", JSON.stringify(storage));
-    //   setCart(curCart);
-    // }
   };
 
   if (allProducts.length < 1) return "";
@@ -97,6 +81,9 @@ export default function CurProduct() {
               Add to Cart
             </button>
           )}
+          <div className="reviews">
+            <p className="heading">Reviews</p>
+          </div>
         </div>
       </div>
       <ToastContainer />
