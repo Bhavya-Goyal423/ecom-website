@@ -8,7 +8,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: [true, "Email is a required field"],
+    unique: [true],
     lowercase: true,
     trim: true,
   },
@@ -23,10 +23,10 @@ const userSchema = new Schema({
   cart: {
     type: [
       {
-        id: {
+        prodId: {
           type: Schema.Types.ObjectId,
           required: true,
-          unique: true,
+          unique: false,
         },
         quantity: {
           type: Number,
@@ -34,8 +34,8 @@ const userSchema = new Schema({
         },
       },
     ],
-    _id: false,
     default: [],
+    unique: false,
   },
 });
 

@@ -26,4 +26,18 @@ export default class ProductController {
       });
     }
   };
+
+  getProductById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const product = await ProductModel.findById(id);
+      return res.json({ status: "success", data: product });
+    } catch (error) {
+      console.log(error);
+      return res.json({
+        status: "failed",
+        message: "Some error occured in fetching for products",
+      });
+    }
+  };
 }

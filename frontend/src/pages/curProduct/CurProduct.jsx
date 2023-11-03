@@ -37,6 +37,7 @@ export default function CurProduct() {
     if (result.status === "Success") {
       setCart(result.result.cart);
     }
+    setQuantity(1);
   };
 
   if (allProducts.length < 1) return "";

@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 
 export default class UserController {
   handleSignUp = async (req, res) => {
+    console.log("in sign up");
     try {
       let { name, email, password } = req.body;
       const salt = await bcrypt.genSalt(10);
@@ -13,6 +14,7 @@ export default class UserController {
       const user = await UserModel.create(data);
       return res.json({ success: true, user });
     } catch (error) {
+      console.log(error);
       if (error.message.includes("dup key"))
         return res.json({
           success: false,
@@ -63,12 +65,12 @@ export default class UserController {
 
       if (!user) return res.json({ message: "User not found" });
       const curItemIndex = user.cart.findIndex((item) =>
-        item.id.equals(curObjectId)
+        item.prodId.equals(curObjectId)
       );
       if (curItemIndex !== -1) {
         user.cart[curItemIndex].quantity += +quantity;
       } else {
-        user.cart.push({ id: itemID, quantity });
+        user.cart.push({ prodId: itemID, quantity });
       }
       const result = await user.save();
       return res.json({ status: "Success", message: "Cart Updated", result });

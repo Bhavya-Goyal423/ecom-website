@@ -49,7 +49,7 @@ export default function SignUp() {
       console.log("Here");
       setTimeout(() => {
         navigate("/signin");
-      }, 2000);
+      }, 0);
     }
   };
 
