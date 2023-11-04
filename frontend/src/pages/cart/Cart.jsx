@@ -25,9 +25,12 @@ export default function Cart() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     const userId = user.id;
-    const res = await fetch(`http://localhost:3000/user/${userId}/${prodId}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `https://ecom-chair.onrender.com/user/${userId}/${prodId}`,
+      {
+        method: "DELETE",
+      }
+    );
     const result = await res.json();
     if (result.status === "success") {
       const userCart = user.cart;
@@ -40,7 +43,7 @@ export default function Cart() {
   };
 
   const fetchProducts = async (id) => {
-    const res = await fetch(`http://localhost:3000/product/${id}`, {
+    const res = await fetch(`https://ecom-chair.onrender.com/product/${id}`, {
       method: "GET",
     });
     const result = await res.json();

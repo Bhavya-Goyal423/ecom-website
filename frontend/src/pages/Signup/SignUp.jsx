@@ -31,7 +31,7 @@ export default function SignUp() {
     e.preventDefault();
     const data = { name, email, password };
 
-    const res = await fetch("http://localhost:3000/user/signup", {
+    const res = await fetch("https://ecom-chair.onrender.com/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export default function SignUp() {
       setPassword("");
       setTimeout(() => {
         navigate("/signin");
-      }, 0);
+      }, 1500);
     }
   };
 

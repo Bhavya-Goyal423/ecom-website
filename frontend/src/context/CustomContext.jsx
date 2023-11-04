@@ -34,7 +34,7 @@ export const CustomContext = ({ children }) => {
   }, [cart]);
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:3000/product/", {
+    const res = await fetch("https://ecom-chair.onrender.com/product/", {
       method: "GET",
     });
     const data = await res.json();

@@ -30,7 +30,7 @@ export default function SignIn() {
   const handleSumbit = async (e) => {
     e.preventDefault();
     const data = { email, password };
-    const res = await fetch("http://localhost:3000/user/signin", {
+    const res = await fetch("https://ecom-chair.onrender.com/user/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -10,7 +9,7 @@ import Shop from "./pages/shop/Shop";
 import { CustomContext } from "./context/CustomContext";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/Signup/SignUp";
-import CurProduct from "./pages/curProduct/curProduct";
+import CurProduct from "./pages/curProduct/CurProduct";
 import Cart from "./pages/cart/cart";
 
 const router = createBrowserRouter([

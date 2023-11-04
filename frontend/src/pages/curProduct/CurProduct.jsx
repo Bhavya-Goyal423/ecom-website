@@ -26,7 +26,7 @@ export default function CurProduct() {
     if (!user) return toast.info("You must login first");
 
     const res = await fetch(
-      `http://localhost:3000/user/${user.id}/${itemId}?quantity=${quantity}`,
+      `https://ecom-chair.onrender.com/user/${user.id}/${itemId}?quantity=${quantity}`,
       {
         method: "PATCH",
       }
