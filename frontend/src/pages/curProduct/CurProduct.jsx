@@ -24,7 +24,6 @@ export default function CurProduct() {
   const handleAddItem = async (itemId) => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) return toast.info("You must login first");
-    console.log(itemId);
 
     const res = await fetch(
       `http://localhost:3000/user/${user.id}/${itemId}?quantity=${quantity}`,
@@ -33,7 +32,7 @@ export default function CurProduct() {
       }
     );
     const result = await res.json();
-    console.log(result);
+
     if (result.status === "Success") {
       setCart(result.result.cart);
     }
@@ -83,7 +82,39 @@ export default function CurProduct() {
             </button>
           )}
           <div className="reviews">
-            <p className="heading">Reviews</p>
+            <h3 className="heading heading-reviews">Reviews</h3>
+            {CurProduct.reviews.map((rev) => (
+              <div className="all-reviews" key={rev["_id"]}>
+                <div className="review">
+                  <p className="rev-username">{rev.userName}</p>
+                  <p className="rating">
+                    {rev.rating}{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 72 72"
+                      className="star-icon"
+                    >
+                      <path
+                        fill="#FCEA2B"
+                        d="M35.993 10.736L27.791 27.37L9.439 30.044l13.285 12.94l-3.128 18.28l16.412-8.636l16.419 8.624l-3.142-18.278l13.276-12.95l-18.354-2.66z"
+                      />
+                      <path
+                        fill="none"
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="2"
+                        d="M35.993 10.736L27.791 27.37L9.439 30.044l13.285 12.94l-3.128 18.28l16.412-8.636l16.419 8.624l-3.142-18.278l13.276-12.95l-18.354-2.66z"
+                      />
+                    </svg>
+                  </p>
+                </div>
+                <p className="rev-review">{rev.comment}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

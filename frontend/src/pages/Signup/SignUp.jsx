@@ -46,7 +46,6 @@ export default function SignUp() {
       setName("");
       setEmail("");
       setPassword("");
-      console.log("Here");
       setTimeout(() => {
         navigate("/signin");
       }, 0);

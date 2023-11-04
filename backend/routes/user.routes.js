@@ -16,6 +16,9 @@ userRouter
   .route("/signin")
   .post(validateUserSignIn, userController.handleSignIn);
 
-userRouter.route("/:userID/:itemID").patch(userController.updateUser);
+userRouter
+  .route("/:userID/:itemID")
+  .patch(userController.updateUser)
+  .delete(userController.removeCartItem);
 
 export default userRouter;

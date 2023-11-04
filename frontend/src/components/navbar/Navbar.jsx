@@ -62,11 +62,6 @@ export default function Navbar() {
                 About
               </NavLink>
             </li>
-            <li className="nav-items">
-              <NavLink className={"nav-link"} to={"/contactus"}>
-                Contact Us
-              </NavLink>
-            </li>
           </ul>
         </nav>
         <div className="user-login-signup">
@@ -89,8 +84,7 @@ export default function Navbar() {
           {isUserClicked && user && (
             <div className="user-dropdown">
               <p className="user-name">{user.name}</p>
-              <Link to={"/"}>Your Orders</Link>
-              <button className="btn-logout" onClick={handleLogout}>
+              <button className="btn btn-logout" onClick={handleLogout}>
                 Logout
               </button>
             </div>

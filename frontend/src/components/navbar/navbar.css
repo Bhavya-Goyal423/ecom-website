@@ -108,6 +108,11 @@
   top: 0;
   transform: translate(30%, -55%);
 }
+
+.btn-logout {
+  padding: 1.2rem 2.4rem;
+}
+
 @media (max-width: 48em) {
   .header {
     padding: 2.4rem 3.2rem;

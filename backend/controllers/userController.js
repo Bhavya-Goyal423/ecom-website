@@ -1,11 +1,9 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 import UserModel from "../models/userModel.js";
-import ProductModel from "../models/productModel.js";
 import bcrypt from "bcrypt";
 
 export default class UserController {
   handleSignUp = async (req, res) => {
-    console.log("in sign up");
     try {
       let { name, email, password } = req.body;
       const salt = await bcrypt.genSalt(10);
@@ -77,6 +75,29 @@ export default class UserController {
     } catch (error) {
       console.log(error);
       return res.json({ status: "Failed", message: "Some Error Occured" });
+    }
+  };
+
+  removeCartItem = async (req, res) => {
+    const userId = req.params.userID;
+    const productId = req.params.itemID;
+
+    try {
+      const query = { _id: userId };
+
+      const update = {
+        $pull: {
+          cart: { prodId: productId },
+        },
+      };
+
+      const result = await UserModel.updateOne(query, update);
+      return res.json({ status: "success", message: "item removed" });
+    } catch (error) {
+      if (error) {
+        console.log(error);
+        return res.json({ status: "failed", message: "Some error occured" });
+      }
     }
   };
 }
