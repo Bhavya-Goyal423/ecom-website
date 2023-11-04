@@ -1,7 +1,7 @@
 import "./shop.css";
 import { useValue } from "../../context/CustomContext";
 import { useEffect } from "react";
-import Product from "../../components/product/product";
+import Product from "../../components/product/Product";
 
 export default function Shop() {
   const { setHref, allProducts } = useValue();
