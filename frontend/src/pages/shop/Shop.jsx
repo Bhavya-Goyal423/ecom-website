@@ -2,7 +2,6 @@ import "./shop.css";
 import { useValue } from "../../context/CustomContext";
 import { useEffect } from "react";
 import Product from "../../components/product/product";
-import Filter from "../../components/filter/Filter";
 
 export default function Shop() {
   const { setHref, allProducts } = useValue();
@@ -16,7 +15,6 @@ export default function Shop() {
 
   return (
     <div className="shop-wrapper">
-      <Filter />
       <div className="shop-main">
         <input
           type="text"

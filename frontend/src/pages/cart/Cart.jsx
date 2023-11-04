@@ -52,10 +52,18 @@ export default function Cart() {
           <div style={{ marginBottom: "1.2rem", fontWeight: "600" }}>
             Product
           </div>
-          <div style={{ marginBottom: "1.2rem", fontWeight: "600" }}>
+          <div
+            className="quan"
+            style={{ marginBottom: "1.2rem", fontWeight: "600" }}
+          >
             Quantity
           </div>
-          <div style={{ marginBottom: "1.2rem", fontWeight: "600" }}>Price</div>
+          <div
+            className="pri"
+            style={{ marginBottom: "1.2rem", fontWeight: "600" }}
+          >
+            Price
+          </div>
           <div style={{ marginBottom: "1.2rem", fontWeight: "600" }}>Total</div>
           {cart.map((item, idx) => {
             console.log(item);

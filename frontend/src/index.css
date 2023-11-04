@@ -39,3 +39,16 @@ html {
   font-size: 2.5rem;
   color: #b3661e;
 }
+/* ! 425px  */
+@media (max-width: 26.56em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+/* !375px  */
+@media (max-width: 23.43em) {
+  html {
+    font-size: 50%;
+  }
+}

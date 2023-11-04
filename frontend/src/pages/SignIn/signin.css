@@ -56,3 +56,31 @@
 .btn-signup {
   color: #c2854b;
 }
+
+/* !1300 px */
+
+@media (max-width: 81.2em) {
+  .sign-in-wrapper {
+    height: auto;
+    min-height: 50vh;
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+    width: 40%;
+  }
+  .section-signin {
+    display: block;
+  }
+}
+/* !1024 px  */
+@media (max-width: 64em) {
+  .sign-in-wrapper {
+    width: 50%;
+  }
+}
+/* !768 px  */
+@media (max-width: 48em) {
+  .sign-in-wrapper {
+    width: 70%;
+  }
+}
