@@ -10,7 +10,7 @@ import { CustomContext } from "./context/CustomContext";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/Signup/SignUp";
 import CurProduct from "./pages/curProduct/CurProduct";
-import Cart from "./pages/cart/cart";
+import Cart from "./pages/cart/Cart";
 
 const router = createBrowserRouter([
   {
