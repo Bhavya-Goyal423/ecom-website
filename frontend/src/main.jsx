@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Navbar from "./components/navbar/Navbar";
 import About from "./pages/about/About";
-import ContactUs from "./pages/contactus/ContactUs";
 import Homepage from "./pages/homepage/Homepage";
 import Shop from "./pages/shop/Shop";
 import { CustomContext } from "./context/CustomContext";
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
       { index: true, element: <Homepage /> },
       { path: "shop", element: <Shop /> },
       { path: "about", element: <About /> },
-      { path: "contactus", element: <ContactUs /> },
+
       { path: "signin", element: <SignIn /> },
       { path: "signup", element: <SignUp /> },
       { path: "shop/:id", element: <CurProduct /> },

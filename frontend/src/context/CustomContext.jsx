@@ -24,13 +24,13 @@ export const CustomContext = ({ children }) => {
   }, [user]);
 
   useEffect(() => {
-    setTimeout(() => {
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (user) {
-        user.cart = cart;
-        localStorage.setItem("user", JSON.stringify(user));
-      }
-    }, 1000);
+    // setTimeout(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      user.cart = cart;
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+    // }, 1000);
   }, [cart]);
 
   const fetchProducts = async () => {

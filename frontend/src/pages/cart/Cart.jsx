@@ -35,7 +35,10 @@ export default function Cart() {
     if (result.status === "success") {
       const userCart = user.cart;
       const filteredUserCart = userCart.filter((el) => el.prodId !== prodId);
+
       setCart(filteredUserCart);
+      const filteredCurCart = cart.filter((el) => el["_id"] !== prodId);
+      setCurCart(filteredCurCart);
       setIsRemoved(true);
     } else {
       console.log("some error occured");
@@ -51,29 +54,23 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      console.log("In use effect");
-      const isItem = JSON.parse(localStorage.getItem("user"));
-      if (!isItem) {
+    let results = [];
+    const fetchEachProduct = async () => {
+      const userItem = JSON.parse(localStorage.getItem("user"));
+
+      if (!userItem) {
         setNoUser(true);
         return;
       }
-      const itemCart = JSON.parse(localStorage.getItem("user")).cart.map(
-        (el) => el.prodId
-      );
-      console.log(itemCart);
 
-      setUserCart(JSON.parse(localStorage.getItem("user")).cart);
-      const fetchAllProducts = async () => {
-        const promises = itemCart.map((item) => fetchProducts(item));
-        const results = await Promise.all(promises);
-        setCurCart(results);
-        console.log(results);
-        setLoading(false);
-      };
-      fetchAllProducts();
-    }, 0);
+      const itemCart = userItem.cart.map((el) => el.prodId);
+
+      setUserCart(userItem.cart);
+
+      results = await Promise.all(itemCart.map((item) => fetchProducts(item)));
+      setCurCart(results);
+    };
+    fetchEachProduct();
   }, []);
 
   if (noUser) return <h1>You Must Login First</h1>;
